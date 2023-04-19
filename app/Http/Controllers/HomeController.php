@@ -4,6 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Horario;
+use App\Models\User;
+
+use App\Models\Cita;
+
+use App\Models\medicRol;
 
 class HomeController extends Controller
 {
@@ -25,6 +30,25 @@ class HomeController extends Controller
     public function index()
     {
         $horarios = Horario::all();
+        if(auth()->user()->role_id == 1){
+            return view('home', compact('horarios'));
+        }elseif(auth()->user()->role_id == 2){
+            $horarios = Horario::all();
+            $citas = Cita :: all();
+            return view('Doctorsprofile',compact('horarios','citas'));
+        }elseif(auth()->user()->role_id == 3){
+            return view('AdminProfile', compact('horarios'));
+        }elseif(auth()->user()->role_id == 4){
+            $users = User :: all();
+            $citas = Cita :: all();
+            $medicRoles = medicRol::all();
+            return view('RepAProfile', compact('citas','users','medicRoles'));
+        }elseif(auth()->user()->role_id == 5){
+            $users = User :: all();
+            $citas = Cita :: all();
+            $medicRoles = medicRol::all();
+            return view('RepBProfile',compact('citas','users','medicRoles'));
+        }
         return view('home', compact('horarios'));
     }
     

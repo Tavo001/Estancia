@@ -69,7 +69,7 @@
                         @endif
                       @endforeach
                     </div>
-                    <a href="citas" class="btn btn-primary mt-3">Ver citas</a>
+                    <a href="cita-nueva" class="btn btn-primary mt-3">agregar cita</a>
                   </div>
                 </div>
               @endfor

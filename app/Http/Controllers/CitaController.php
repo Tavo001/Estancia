@@ -47,7 +47,7 @@ class CitaController extends Controller
                         ->where('horario_cierre', '>=', $hora_cita->format('H:i:s'))
                         ->exists();
     
-    if (!$horarios) {
+    if ($horarios) {
         return redirect()->back()->with('error', 'La hora de la cita está fuera de los horarios de atención de la clínica.');
     }
     

@@ -66,7 +66,7 @@
                       @endforeach
                     </div>
                     <button class="btn btn-primary">
-                    <i class="fas fa-plus"></i> Agregar cita
+                    <a href="cita-nueva" class="btn btn-primary mt-3">agregar cita</a>
                     </button>
                   </div>
                 </div>
